@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/style/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <audio id="tema" src="./static/audio/tema.mp3" loop></audio>
+    <script>
+        const musica = document.getElementById("tema");
+        musica.volume = 0.0;
+        window.addEventListener("load",() =>{
+            musica.play();
+
+        let volumeAtual = 0.0;
+        const volumeFinal = 0.2;
+        const velocidade = 0.005; 
+
+        const fadeInterval = setInterval(() => {
+            if (volumeAtual < volumeFinal) {
+                volumeAtual += velocidade;
+                musica.volume = volumeAtual;
+            } else {
+                clearInterval(fadeInterval);
+            }
+        }, 100);
+    });
+    </script> 
+    <div class="voltar-botao">
+        <a href="secao.html" class="btn-op" data-text="Sessão">
+        Sessão
+        </a>
+    </div>
+</body>
+</html>

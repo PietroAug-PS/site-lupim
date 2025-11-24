@@ -1,0 +1,96 @@
+body{
+    background-color: black;
+}
+header{
+    background-color: black;
+    margin: 0px;
+}
+.banner{
+    display: block;
+    margin: 0 auto;
+    height: 230px;
+}
+button{
+    display: block;
+    margin: 200px auto;
+}
+.menu-botoes {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    align-items: center;
+    margin-top: 40px;
+}
+
+/* Botão base */
+.btn-op {
+    position: relative;
+    text-decoration: none;
+    color: #fff;
+    padding: 15px 30px;
+    background: #111;
+    border: 2px solid #4affff;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    width: 250px;
+    text-align: center;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+/* Cópias para glitch */
+.btn-op::before,
+.btn-op::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    padding: 15px 30px;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.btn-op::before {
+    color: #ff004c;
+    z-index: 2;
+}
+
+.btn-op::after {
+    color: #00fff2;
+    z-index: 3;
+}
+
+/* Efeito glitch no hover */
+.btn-op:hover::before {
+    opacity: 1;
+    animation: glitch1 0.2s infinite;
+}
+
+.btn-op:hover::after {
+    opacity: 1;
+    animation: glitch2 0.2s infinite;
+}
+
+@keyframes glitch1 {
+    0% { transform: translate(2px, -2px); }
+    50% { transform: translate(-2px, 2px); }
+    100% { transform: translate(2px, -2px); }
+}
+
+@keyframes glitch2 {
+    0% { transform: translate(-2px, 2px); }
+    50% { transform: translate(2px, -2px); }
+    100% { transform: translate(-2px, 2px); }
+}
+
+/* Leve destaque no hover */
+.btn-op:hover {
+    background: #4affff;
+    color: #000;
+    box-shadow: 0 0 15px #4affff;
+}
