@@ -46,7 +46,6 @@
     <section>
         <form class="card-form">
             <input class="form__imagem" type="file">
-            <div id="preview"></div>
             
             <fieldset class="form__texto">
                 <label for="item__titulo">Nome: </label>
@@ -57,30 +56,9 @@
             </fieldset>
         </form>
     </section>
-
-    <script>
-    const imagemInput = document.getElementById("imagemInput");
-    const preview = document.getElementById("preview");
-
-    imagemInput.addEventListener("change", function () {
-        const file = imagemInput.files[0];
-        if (!file) return;
-
-        const reader = new FileReader();
-        reader.onload = function (event) {
-            const img = document.createElement("img");
-            img.src = event.target.result;
-            img.classList.add("preview-img");
-
-            preview.innerHTML = ""; // limpa caso troque a imagem
-            preview.appendChild(img);
-        };
-
-        reader.readAsDataURL(file);
-    });
-</script>
 </body>
 
 </html>
+
 
 
